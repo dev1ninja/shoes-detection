@@ -9,7 +9,8 @@ from imageio import imread
 
 from utils import getMaskedResult,getMaskImage,getMaskSoleImage
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 IMG_FOLDER = os.path.join('static', 'images')

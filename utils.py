@@ -8,13 +8,20 @@ from PIL import ImageColor
 import cv2
 import networks.unet
 
-x = tf.placeholder(tf.float32, shape=[None, None, None, 3], name='x')
+# x = tf.placeholder(tf.float32, shape=[None, None, None, 3], name='x')
+x = tf.compat.v1.placeholder(tf.float32, shape=[None, None, None, 3], name='x')
+
 y_pred = networks.unet.create_unet(x, train=False)
 y_pred = tf.argmax(y_pred, axis=3, name="y_pred")
 
-sess = tf.Session()
-sess.run(tf.global_variables_initializer())
-saver = tf.train.Saver()
+# sess = tf.Session()
+sess = tf.compat.v1.Session()
+
+# sess.run(tf.global_variables_initializer())
+sess.run(tf.compat.v1.global_variables_initializer())
+
+# saver = tf.train.Saver()
+saver = tf.compat.v1.train.Saver()
 # saver.restore(sess, './model_sole/segmentation.ckpt-7422')
 
 def process(origin_image,mask_image,maskcolor,mask_sole_image,masksolecolor):
