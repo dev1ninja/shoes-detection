@@ -8,8 +8,7 @@ import io
 from imageio import imread
 
 from utils import getMaskedResult,getMaskImage,getMaskSoleImage
-
-# app = Flask(__name__)
+import time
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -44,6 +43,7 @@ def colorBkground():
 
 @app.route('/imgPortrait',  methods=['POST'])
 def Loadimage():
+    st=time.time()
     img_original = request.values["portraitphoto"]
 
     base64str = img_original
@@ -59,6 +59,8 @@ def Loadimage():
     img_base64 = base64.b64encode(img_arr.tobytes()).decode('utf-8')
     img_base64 = "data:image/png;base64," + img_base64
     # print(img_base64)
+    et=time.time()
+    print(et-st,"loading")
     return img_base64
 
 @app.route('/RmbkPortrait',  methods=['POST'])
@@ -91,24 +93,27 @@ def removeBkground():
     return img_base64
 
 def imageprocessmargin(image):
+    st=time.time()
     h,w,_=image.shape
     ratio=w/h
-    tmp=cv2.resize(image,(512,512))
+    size=2500
+    tmp=cv2.resize(image,(size,size))
     if ratio>1:
-        tmp_h=int(h * 512 / w)
-        diff=512-tmp_h
-        image = cv2.resize(image, (512,tmp_h))
+        tmp_h=int(h * size / w)
+        diff=size-tmp_h
+        image = cv2.resize(image, (size,tmp_h))
         tmp[0:int(diff/2),:]=255
         tmp[int(diff/2):int(diff/2)+tmp_h,:]=image
-        tmp[int(diff/2)+tmp_h:512,:]=255
+        tmp[int(diff/2)+tmp_h:size,:]=255
     else:
-        tmp_w=int(w * 512 / h)
-        diff=512-tmp_w
-        image = cv2.resize(image, (tmp_w,512))
+        tmp_w=int(w * size / h)
+        diff=size-tmp_w
+        image = cv2.resize(image, (tmp_w,size))
         tmp[:,0:int(diff/2)]=255
         tmp[:,int(diff/2):int(diff/2)+tmp_w]=image
-        tmp[:,int(diff/2)+tmp_w:512]=255
-
+        tmp[:,int(diff/2)+tmp_w:size]=255
+    et=time.time()
+    print(et-st,"processing",size)
     return tmp
 
 
