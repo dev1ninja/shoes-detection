@@ -7,7 +7,7 @@ import base64
 import io
 from imageio import imread
 
-from utils import getMaskedResult,getMaskImage,getMaskSoleImage
+from utils import getMaskedResult,Detect_label
 import time
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -55,6 +55,7 @@ def Loadimage():
     if img_portrait is None:
         return ""
     imgresult=imageprocessmargin(img_portrait)
+
     _, img_arr = cv2.imencode('.png', imgresult)
     img_base64 = base64.b64encode(img_arr.tobytes()).decode('utf-8')
     img_base64 = "data:image/png;base64," + img_base64
@@ -79,11 +80,8 @@ def removeBkground():
         return ""
     if img_portrait is None:
         return ""
-    cv2.imwrite("networks/img_tmp.png",img_portrait)
-    img_mask= getMaskImage(img_portrait)
-    cv2.imwrite("networks/mask_tmp.png",img_mask)
-    img_mask_sole=getMaskSoleImage(img_portrait)
-    cv2.imwrite("networks/mask_sole_tmp.png",img_mask_sole)
+
+    img_mask,img_mask_sole=Detect_label(img_portrait)
     imgresult = getMaskedResult(img_portrait,img_mask,img_mask_sole,colorvalue,colorvalue_sole)
     imgresult=imageprocessmargin(imgresult)
     _, img_arr = cv2.imencode('.png', imgresult)
