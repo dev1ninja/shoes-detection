@@ -3,6 +3,7 @@
     "builds": [
       {
         "src": "Server.py",
+        "env": {"FLASK_APP": "Server.py", "FLASK_ENV": "production"},
         "use": "@vercel/python"
       }
     ],
@@ -11,6 +12,10 @@
         "src": "/(.*)",
         "dest": "/"
       }
-    ]
+    ],
+    "install": {
+        "include": ["requirements.txt"],
+        "command": "pip install -r requirements.txt"
+      }
   }
   
