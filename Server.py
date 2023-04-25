@@ -7,7 +7,7 @@ import base64
 import io
 from imageio import imread
 
-from utils import getMaskedResult,Detect_label
+from utils import getMaskedResult, Detect_label
 import time
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
