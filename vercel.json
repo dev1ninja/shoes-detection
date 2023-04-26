@@ -1,5 +1,7 @@
 {
   "build": {
+    "src": "./Server.py",
+    "use": "@vercel/python",
     "env": {
       "PYTHON_VERSION": "3.7.2",
       "PIP_TARGET": "/vercel/path0/.python_packages/lib/python3.7/site-packages",
@@ -9,7 +11,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/Server.py"
+      "dest": "/"
     }
   ]
 }
