@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "PYTHON_VERSION": "3.7.2",
+      "PYTHON_VERSION": "3.6",
       "PIP_TARGET": "/vercel/path0/.python_packages/lib/python3.7/site-packages",
       "PYTHONUSERBASE": "/vercel/path0/.python_packages"
     }
