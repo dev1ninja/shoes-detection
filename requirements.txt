@@ -1,4 +1,5 @@
-gunicorn>=20.1.0
+waitress
+gunicorn
 opencv-python==4.3.0.38
 imageio
 pillow

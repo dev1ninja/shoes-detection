@@ -1,1 +1,1 @@
-web: gunicorn Server:app
+waitress-serve Server:app
