@@ -1,15 +1,19 @@
 {
-  "build": {
-    "env": {
-      "PYTHON_VERSION": "3.6",
-      "PIP_TARGET": "/vercel/path0/.python_packages/lib/python3.7/site-packages",
-      "PYTHONUSERBASE": "/vercel/path0/.python_packages"
+  "version": 2,
+  "builds": [
+    {
+      "src": "Server.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/templates/main.html"
+      "dest": "/Server.py"
     }
-  ]
+  ],
+  "env": {
+    "FLASK_ENV": "production",
+    "FLASK_APP": "Server.py"
+  }
 }
