@@ -4,8 +4,7 @@
       "PYTHON_VERSION": "3.7.2",
       "PIP_TARGET": "/vercel/path0/.python_packages/lib/python3.7/site-packages",
       "PYTHONUSERBASE": "/vercel/path0/.python_packages"
-    },
-    "command": "pip install -r requirements.txt && python Server.py"
+    }
   },
   "routes": [
     {
