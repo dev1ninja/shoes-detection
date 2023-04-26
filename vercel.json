@@ -11,11 +11,5 @@
       "src": "/(.*)",
       "dest": "/templates/main.html"
     }
-  ],
-  "functions": {
-    "./Server.py": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  }
+  ]
 }
