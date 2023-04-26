@@ -9,10 +9,10 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/"
+      "dest": "/templates/main.html"
     }
   ],
   "functions": {
-    "api/*": "./Server.py"
+    "api": "./Server.py"
   }
 }
