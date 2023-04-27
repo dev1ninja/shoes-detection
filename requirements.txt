@@ -1,8 +1,9 @@
+tensorflow==1.14.0
+tensorflow-gpu==1.14.0
 waitress
 gunicorn
-tensorflow==2.10.0
-tensorflow-gpu==2.10.0
-opencv-python
+opencv-python==4.3.0.38
 imageio
 pillow
-scikit-learn
+flask
+scipy
