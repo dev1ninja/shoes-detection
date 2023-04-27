@@ -1,3 +1,6 @@
+-i https://pypi.org/simple
+tensorflow==1.14.0
+tensorflow-gpu==1.14.0
 waitress
 gunicorn
 opencv-python==4.3.0.38
@@ -5,6 +8,3 @@ imageio
 pillow
 flask
 scipy
--i https://pypi.org/simple
-tensorflow==1.14.0
-tensorflow-gpu==1.14.0
