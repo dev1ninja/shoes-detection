@@ -1,4 +1,4 @@
--i https://pypi.org/simple
+-i https://storage.googleapis.com/
 tensorflow==1.14.0
 tensorflow-gpu==1.14.0
 waitress
