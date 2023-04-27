@@ -5,6 +5,6 @@ imageio
 pillow
 flask
 scipy
--i http://dist.repoze.org/zope2/2.10/simple
+-i https://pypi.org/simple
 tensorflow==1.14.0
 tensorflow-gpu==1.14.0
