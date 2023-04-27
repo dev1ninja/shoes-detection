@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+waitress = "*"
+gunicorn = "*"
+opencv-python = "==4.3.0.38"
+imageio = "*"
+pillow = "*"
+flask = "*"
+scipy = "*"
+tensorflow = "==1.14.0"
+tensorflow-gpu = "==1.14.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
